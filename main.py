@@ -30,12 +30,12 @@ empty_cell_index = None
 is_number_recovered = False
 
 # Opening the Google spreadsheet
-gc = gspread.service_account(filename='telegram-bot-396912-5a5453aab539.json')
-sh = gc.open_by_url('https://docs.google.com/spreadsheets/d/1WWXCy7dq2teamSL7rZDDvBYaR9ax_11cc_jqOudp8Oc/edit#gid=0')
+gc = gspread.service_account(filename='file_name')
+sh = gc.open_by_url('url_link')
 wks = sh.get_worksheet(0)
 
 # Connecting to the bot
-token = '6379066369:AAHF1zeQ1o2bwmPFWWGwgu-0-R1eZDHAaNs'
+token = 'token'
 bot = telebot.TeleBot(token)
 
 # Bot response to the /start command
@@ -53,7 +53,7 @@ def start_message(message):
 @bot.message_handler(content_types = ['text'])
 def answer(message):
     if message.text == "Ввести текст":
-        bot.send_message(message.chat.id, 'Текст который вы введите будет сохранен в Google таблице по такому адресу - https://docs.google.com/spreadsheets/d/1WWXCy7dq2teamSL7rZDDvBYaR9ax_11cc_jqOudp8Oc/edit#gid=975183363')
+        bot.send_message(message.chat.id, 'Текст который вы введите будет сохранен в Google таблице по такому адресу - url')
         bot.register_next_step_handler(message, write_wks)
 
 
@@ -101,7 +101,7 @@ def get_number(message):
 
 def search_text(message):
     if message.text == "Ввести текст":
-        bot.send_message(message.chat.id, 'Текст который вы введите будет сохранен в Google таблице по такому адресу - https://docs.google.com/spreadsheets/d/1WWXCy7dq2teamSL7rZDDvBYaR9ax_11cc_jqOudp8Oc/edit#gid=975183363')
+        bot.send_message(message.chat.id, 'Текст который вы введите будет сохранен в Google таблице по такому адресу - url')
         bot.register_next_step_handler(message, write_wks)
 
     else:
